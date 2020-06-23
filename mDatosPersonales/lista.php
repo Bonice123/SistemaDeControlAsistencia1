@@ -36,6 +36,7 @@ $consultar = mysqli_query($conexionLi, $cadena);
                 <th scope="col">Datos</th>
                 <th scope="col">Foto</th>
                 <th scope="col">Audio</th>
+                <th scope="col">Horario</th>
                 <th scope="col">Clave</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Ap. Paterno</th>
@@ -52,6 +53,40 @@ $consultar = mysqli_query($conexionLi, $cadena);
         while( $row = mysqli_fetch_array($consultar) ) {
 
             $id          = $row[0];
+
+            $cadenahorario = "SELECT id_datos_persona, id_horario, turno, l_entrada, l_salida, m_entrada, m_salida, mi_entrada, mi_salida, j_entrada, j_salida, v_entrada, v_salida, s_entrada, s_salida, d_entrada, d_salida FROM horarios WHERE id_datos_persona = '$id'";
+
+            $consultarhorario = mysqli_query($conexionLi, $cadenahorario);
+
+            $row2 = mysqli_fetch_array($consultarhorario);
+
+            $turno = $row2[2];
+            $LuE = $row2[3];
+            $LuS = $row2[4];
+            $MaE = $row2[5];
+            $MaS = $row2[6];
+            $MiE = $row2[7];
+            $MiS = $row2[8];
+            $JuE = $row2[9];
+            $JuS = $row2[10];
+            $ViE = $row2[11];
+            $ViS = $row2[12];
+            $SaE = $row2[13];
+            $SaS = $row2[14];
+            $DoE = $row2[15];
+            $DoS = $row2[16];
+
+            if ($id == $row2[0]) {
+                 $id." NO ENTRO WE: ".$row2[0];
+                $icoHorario="<i class='fa fa-clock'></i>";
+                $vHorario="Si";
+                
+            }else{
+                 $id." ESTE ES EL ID ESTÁTICO: ".$row2[0];
+                $icoHorario="<i class='fa fa-upload fa-lg'></i>";
+                $vHorario="No";
+                
+            }
 
             if ($row[1] == 1) {
                 $chkChecado    = "checked";
@@ -82,7 +117,6 @@ $consultar = mysqli_query($conexionLi, $cadena);
             $sonido     ="El nombre completo de la persona es ".$nombre." ".$paterno." ".$materno." , registrado con la clave ".$clave;
 
             $foto       = '../fotos/'.$clave.'.jpg';
-
             if (file_exists($foto)){
                 $icoFoto="<i class='fas fa-check '></i>";
                 $tFoto="Si";
@@ -90,6 +124,7 @@ $consultar = mysqli_query($conexionLi, $cadena);
                 $icoFoto="<i class='fas fa-times fa-lg'></i>";
                 $tFoto="No";
             }
+
 
             ?>
             <tr class="centrar">
@@ -118,6 +153,11 @@ $consultar = mysqli_query($conexionLi, $cadena);
                 <td>
                     <button <?php echo $dtnDesabilita?> type="button" class="audio btn btn-link btn-sm activo"  id="btnSonido<?php echo $varGral?><?php echo $n?>" onclick="hablar('<?php echo $sonido?>')">
                     <i id="icoSound<?php echo $varGral?><?php echo $n?>" class="<?php echo $iconSound?>"></i>
+                    </button>
+                </td>
+                <td>
+                    <button <?php echo $dtnDesabilita?> type="button" class="horario btn btn-outline-secondary btn-sm activo"  id="btnHorario<?php echo $varGral?><?php echo $n?>" onclick="abrirModalHorario('<?php echo $id?>','<?php echo $nCompleto?>','<?php echo $vHorario?>','<?php echo $turno ?>','<?php echo $LuE ?>','<?php echo $LuS ?>','<?php echo $MaE ?>','<?php echo $MaS ?>','<?php echo $MiE ?>','<?php echo $MiS ?>','<?php echo $JuE ?>','<?php echo $JuS?>','<?php echo $ViE ?>','<?php echo $ViS ?>','<?php echo $SaE ?>','<?php echo $SaS ?>','<?php echo $DoE ?>','<?php echo $DoS ?>')">
+                        <?php echo $icoHorario?>
                     </button>
                 </td>
                 <td>
@@ -163,6 +203,7 @@ $consultar = mysqli_query($conexionLi, $cadena);
                 <th scope="col">Datos</th>
                 <th scope="col">Foto</th>
                 <th scope="col">Audio</th>
+                <th scope="col">Horario</th>
                 <th scope="col">Clave</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Ap. Paterno</th>

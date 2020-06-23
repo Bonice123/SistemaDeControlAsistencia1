@@ -556,6 +556,7 @@ function limpiarmodalmenu(params) {
     $("#nueva_contra").val("");
     $("#verificar_contra").val("");
 }
+
 //SonidoAlCambiarTema
 function accionPlay(){ 
     var reproducir = new Audio();

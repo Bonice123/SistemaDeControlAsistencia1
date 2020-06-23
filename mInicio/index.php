@@ -162,6 +162,8 @@ $fecha=date("Y-m-d");
                 </div>
             </div>
 
+            
+
     <!-- Modal de carga -->
         <?php include'../modales/modalCarga.php'; ?>
     <!-- Modal de carga -->  
@@ -174,6 +176,10 @@ $fecha=date("Y-m-d");
     <!-- Modal de PDF -->
         <?php include'../modales/modalPDF.php'; ?>
     <!-- Modal de PDF -->
+    <!-- Modal de Horario -->
+    <?php include'../modales/modalHorario.php'; ?>
+    <!-- Modal de Horario -->
+
 
     <!-- jQuery -->
     <script src="../plugins/jQuery/jquery-3.3.1.js"></script>   
