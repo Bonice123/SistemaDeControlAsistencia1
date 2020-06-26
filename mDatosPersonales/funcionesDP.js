@@ -814,7 +814,11 @@ $("#turno").change(function(){
         $('#DS').val(cero);
     }
 });
-
+var esp1="";
+var seis1="06:00";
+var doce1="12:00";
+var dieciocho1="18:00";
+var cero1="23:59";
 $("#eturno").change(function(){
     var turno = $('select[id=eturno]').val();
     if (turno=="Especial") {
@@ -839,81 +843,58 @@ $("#eturno").change(function(){
     }
     if (turno == "Matutino") {
         desabilitar();
-        sumar();
-        $('#eLE').val(seis);
-        $('#eLS').val(doce);
-        $('#eMaE').val(seis);
-        $('#eMaS').val(doce);
-        $('#eMiE').val(seis);
-        $('#eMiS').val(doce);
-        $('#eJE').val(seis);
-        $('#eJS').val(doce);
+        $('#eLE').val(seis1);
+        $('#eLS').val(doce1);
+        $('#eMaE').val(seis1);
+        $('#eMaS').val(doce1);
+        $('#eMiE').val(seis1);
+        $('#eMiS').val(doce1);
+        $('#eJE').val(seis1);
+        $('#eJS').val(doce1);
         $('#eVE').val(seis);
-        $('#eVS').val(doce);
-        $('#eSE').val(seis);
-        $('#eSS').val(doce);
-        $('#eDE').val(seis);
+        $('#eVS').val(doce1);
+        $('#eSE').val(seis1);
+        $('#eSS').val(doce1);
+        $('#eDE').val(seis1);
         $('#eDS').val(doce);
 
     }
     if (turno == "Vespertino") {
         desabilitar();
-        sumar();
-        $('#eLE').val(doce);
-        $('#eLS').val(dieciocho);
-        $('#eMaE').val(doce);
-        $('#eMaS').val(dieciocho);
-        $('#eMiE').val(doce);
-        $('#eMiS').val(dieciocho);
-        $('#eJE').val(doce);
-        $('#eJS').val(dieciocho);
-        $('#eVE').val(doce);
-        $('#eVS').val(dieciocho);
-        $('#eSE').val(doce);
-        $('#eSS').val(dieciocho);
-        $('#eDE').val(doce);
+        $('#eLE').val(doce1);
+        $('#eLS').val(dieciocho1);
+        $('#eMaE').val(doce1);
+        $('#eMaS').val(dieciocho1);
+        $('#eMiE').val(doce1);
+        $('#eMiS').val(dieciocho1);
+        $('#eJE').val(doce1);
+        $('#eJS').val(dieciocho1);
+        $('#eVE').val(doce1);
+        $('#eVS').val(dieciocho1);
+        $('#eSE').val(doce1);
+        $('#eSS').val(dieciocho1);
+        $('#eDE').val(doce1);
         $('#eDS').val(dieciocho);
     }
     if (turno == "Nocturno") {
         desabilitar();
-        sumar();
-        $('#eLE').val(dieciocho);
-        $('#eLS').val(cero);
-        $('#eMaE').val(dieciocho);
-        $('#eMaS').val(cero);
-        $('#eMiE').val(dieciocho);
-        $('#eMiS').val(cero);
-        $('#eJE').val(dieciocho);
-        $('#eJS').val(cero);
-        $('#eVE').val(dieciocho);
-        $('#eVS').val(cero);
-        $('#eSE').val(dieciocho);
-        $('#eSS').val(cero);
-        $('#eDE').val(dieciocho);
-        $('#eDS').val(cero);
+        $('#eLE').val(dieciocho1);
+        $('#eLS').val(cero1);
+        $('#eMaE').val(dieciocho1);
+        $('#eMaS').val(cero1);
+        $('#eMiE').val(dieciocho1);
+        $('#eMiS').val(cero1);
+        $('#eJE').val(dieciocho1);
+        $('#eJS').val(cero1);
+        $('#eVE').val(dieciocho1);
+        $('#eVS').val(cero1);
+        $('#eSE').val(dieciocho1);
+        $('#eSS').val(cero1);
+        $('#eDE').val(dieciocho1);
+        $('#eDS').val(cero1);
     }
 });
 
-function llenar_horario(id,id_per,turno,LE,LS,MaE,MaS,MiE,MiS,JE,JS,VE,VS,SE,SS,DE,DS){
-    $("#eIdh1").val(id);
-    $("#eIdh2").val(id_per);
-    $("#eturno").val(turno);
-    $("#eLE").val(LE);   
-    $("#eLS").val(LS);
-    $("#eMaE").val(MaE);  
-    $("#eMaS").val(MaS);
-    $("#eMiE").val(MiE); 
-    $("#eMiS").val(MiS);
-    $("#eJE").val(JE);   
-    $("#eJS").val(JS);
-    $("#eVE").val(VE);  
-    $("#eVS").val(VS);
-    $("#eSE").val(SE); 
-    $("#eSS").val(SS);
-    $("#eDE").val(DE); 
-    $("#eDS").val(DS);
-
-}
 function desabilitar() {
     $('#LE').prop('disabled', true);
     $('#LS').prop('disabled', true);

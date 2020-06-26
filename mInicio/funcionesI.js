@@ -16,6 +16,11 @@ function ocultarSecciones(){
     $("#guardar-EC").hide();
     $("#editar-EC").hide();
     $("#Listado-EC").hide();
+    //Temas
+    $("#Temas").hide();
+    $("#guardar-TE").hide();
+    $("#editar-TE").hide();
+    $("#Listado-TE").hide();
     //cambio contra
     $("#Cambiocontra").hide();
     $("#guardar-CC").hide();
@@ -64,6 +69,23 @@ function verEstadoCivil(){
 
     $("#estadoCivil").show();
     llenar_lista_EC();
+    var idTema=$("#inicioIdTema").val()
+    aplicarTema(idTema,'otro');      
+}
+
+function verTemas(){
+    ocultarSecciones();
+    $("#lblTitular").text("Temas");
+    
+    $("#editar-TE").hide();
+    $("#guardar-TE").hide();
+    $("#Listado-TE").fadeIn();
+    $("#frmGuardar-TE")[0].reset();
+    $("#frmActualizar-TE")[0].reset();
+    $("#badgeInfo").text("Lista");
+
+    $("#Temas").show();
+    llenar_lista_tema();
     var idTema=$("#inicioIdTema").val()
     aplicarTema(idTema,'otro');      
 }
