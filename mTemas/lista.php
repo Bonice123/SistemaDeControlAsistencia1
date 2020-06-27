@@ -22,6 +22,13 @@ $cadena = "SELECT
 $consultar = mysqli_query($conexionLi, $cadena);
 //$row = mysqli_fetch_array($consultar);
 
+function dias_pasados($fecha_inicial,$fecha_final)
+{
+$dias = (strtotime($fecha_inicial)-strtotime($fecha_final))/86400;
+$dias = abs($dias); $dias = floor($dias);
+return $dias;
+}
+
 ?>
 <div class="table-responsive">
 <table id="example<?php echo $varGral;?>" class="table table-striped table-bordered" style="width:100%">
@@ -68,6 +75,9 @@ $consultar = mysqli_query($conexionLi, $cadena);
             $borde = $row[6];
             $fecha = $row[7];
             $hora = $row[8];
+            $fechaActual = date("Y-m-d");
+
+            $DiasPasados = dias_pasados($fechaActual,$fecha);
 
             ?>
             <tr class="centrar">
@@ -96,7 +106,7 @@ $consultar = mysqli_query($conexionLi, $cadena);
                 </td>
                 <td>
                     <label class="textoBase">
-                        <?php echo $fecha?>
+                        <?php echo $DiasPasados?>
                     </label>
                 </td>
                 <td>
